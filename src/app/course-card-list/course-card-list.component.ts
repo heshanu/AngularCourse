@@ -1,15 +1,50 @@
-import { Component, OnInit } from '@angular/core';
-
+//import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { Course } from '../model/course';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { CourseDialogComponent } from '../course-dialog/course-dialog.component';
+import { filter, tap } from 'rxjs/operators';
 @Component({
   selector: 'app-course-card-list',
   templateUrl: './course-card-list.component.html',
-  styleUrls: ['./course-card-list.component.scss']
+  styleUrls: ['./course-card-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CourseCardListComponent implements OnInit {
+  @Input()
+  courses: Course[] = [];
 
-  constructor() { }
+  @Output()
+  private coursesChanged = new EventEmitter();
 
-  ngOnInit(): void {
+  constructor(private dialog: MatDialog) {}
+
+  ngOnInit() {}
+
+  editCourse(course: Course) {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '400px';
+
+    dialogConfig.data = course;
+
+    const dialogRef = this.dialog.open(CourseDialogComponent, dialogConfig);
+
+    dialogRef
+      .afterClosed()
+      .pipe(
+        filter((val) => !!val),
+        tap(() => this.coursesChanged.emit())
+      )
+      .subscribe();
   }
-
 }
