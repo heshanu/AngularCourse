@@ -11,6 +11,8 @@ import { Course } from '../model/course';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CourseDialogComponent } from '../course-dialog/course-dialog.component';
 import { filter, tap } from 'rxjs/operators';
+import { CoursesStore } from '../services/courses.store';
+import { throws } from 'assert';
 @Component({
   selector: 'app-course-card-list',
   templateUrl: './course-card-list.component.html',
@@ -19,14 +21,24 @@ import { filter, tap } from 'rxjs/operators';
 })
 export class CourseCardListComponent implements OnInit {
   @Input()
-  courses: Course[] = [];
+  //courses: Course[] = [];
+  courses:any|null;
 
   @Output()
   private coursesChanged = new EventEmitter();
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog, private coursesStore: CoursesStore) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getList();
+  }
+
+  getList() {
+    this.coursesStore.getAll().subscribe((res) => {
+      console.log(res);
+      this.courses = res;
+    });
+  }
 
   editCourse(course: Course) {
     const dialogConfig = new MatDialogConfig();

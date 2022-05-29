@@ -57,12 +57,14 @@ import { LoadingService } from './loading/loading.service';
 import { RegisterComponent } from './register/register.component';
 //import {MatCardModule} from '@angular/material/card';
 import { MessagesService } from './messages/message.service';
+//import {CourseCardListComponent} './course-card-list/course-card-list.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
     CourseComponent,
+    CourseCardListComponent,
     CourseDialogComponent,
     LoginComponent,
     LessonComponent,

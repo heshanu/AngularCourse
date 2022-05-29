@@ -4,6 +4,7 @@ import { Course } from '../model/course';
 import { Observable } from 'rxjs';
 import { CoursesStore } from '../services/courses.store';
 import { CoursesService } from '../services/courses.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private coursesStore: CoursesStore,
-    private coursesService: CoursesService
+    private coursesService: CoursesService,
+    private dialog:MatDialog
   ) {}
 
   ngOnInit() {

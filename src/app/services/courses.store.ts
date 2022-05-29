@@ -5,6 +5,7 @@ import { catchError, map, shareReplay, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { LoadingService } from '../loading/loading.service';
 import { MessagesService} from '../messages/message.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +21,9 @@ export class CoursesStore {
     private loading: LoadingService,
     private messages:MessagesService
   ) {
-    this.loadAllCourses();
+   // this.loadAllCourses();
   }
-
+/*
   private loadAllCourses() {
     const loadCourses$ = this.http.get<Course[]>('/api/courses').pipe(
       map((response: any) => response['payload']),
@@ -64,7 +65,7 @@ export class CoursesStore {
       shareReplay()
     );
   }
-
+*/
   filterByCategory(category: string): Observable<Course[]> {
     return this.courses$.pipe(
       map((courses: any) =>
@@ -74,4 +75,31 @@ export class CoursesStore {
       )
     );
   }
+  create(course: any): Observable<any> {
+    return this.http.post(`${environment.baseAPIUrl}/course.json`, course);
+  }
+
+  getAll(): Observable<any> {
+    return this.http.get(`${environment.baseAPIUrl}/course.json`)
+      .pipe(
+        map((res:any) => {
+          const courses: any[] = [];
+          for (const key in res) {
+            if (res.hasOwnProperty(key)) {
+              courses.push({...res[key], id: key});
+            }
+          }
+          return courses;
+        })
+      );
+  }
+
+  update(course: any, id: string): Observable<any> {
+    return this.http.put(`${environment.baseAPIUrl}/course/${id}.json`, course);
+  }
+
+  delete(id: string): Observable<any> {
+    return this.http.delete(`${environment.baseAPIUrl}/course/${id}.json`);
+  }
+
 }
