@@ -4,12 +4,11 @@ import { Course, sortCoursesBySeqNo } from '../model/course';
 import { catchError, map, shareReplay, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { LoadingService } from '../loading/loading.service';
-//import { MessagesService } from '../messages/messages.service';
-import { MessagesService } from '../messages/message.service';
+import { MessagesService} from '../messages/message.service';
 
 @Injectable({
-  providedIn: 'root',
-});
+  providedIn: 'root'
+})
 
 export class CoursesStore {
   private subject = new BehaviorSubject<Course[]>([]);
@@ -19,7 +18,7 @@ export class CoursesStore {
   constructor(
     private http: HttpClient,
     private loading: LoadingService,
-    private messages: MessagesService
+    private messages:MessagesService
   ) {
     this.loadAllCourses();
   }

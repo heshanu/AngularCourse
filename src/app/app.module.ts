@@ -54,10 +54,9 @@ import { LoadingComponent } from './loading/loading.component';
 //import { CoursesCardListComponent } from './courses-card-list/courses-card-list.component';
 //import { CourseCardListComponent } from './course-card-list/course-card-list.component';
 import { LoadingService } from './loading/loading.service';
-//import { MessagesService } from './messages/messages.service';
-import { MessagesService } from './messages/message.service';
 import { RegisterComponent } from './register/register.component';
 //import {MatCardModule} from '@angular/material/card';
+import { MessagesService } from './messages/message.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,7 +96,7 @@ import { RegisterComponent } from './register/register.component';
     ReactiveFormsModule,
     MatCardModule
   ],
-  providers: [LoadingService, MessagesService],
+  providers: [LoadingService,MessagesService],
   bootstrap: [AppComponent],
   entryComponents: [CourseDialogComponent],
 })

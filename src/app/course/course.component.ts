@@ -1,4 +1,3 @@
-
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -46,14 +45,15 @@ interface CourseData {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CourseComponent implements OnInit {
-  data$!: Observable<CourseData>;
+  data$!:Observable<CourseData>;
 
   constructor(
     private route: ActivatedRoute,
     private coursesService: CoursesService
   ) {}
-  ngOnInit(): void {
-    const courseId = parseInt(this.route.snapshot.paramMap.get('courseId'));
+
+  ngOnInit() {/*
+    const courseId = parseInt(this.route.snapshot.paramMap.get("courseId"));
 
     const course$ = this.coursesService
       .loadCourseById(courseId)
@@ -71,6 +71,6 @@ export class CourseComponent implements OnInit {
         };
       }),
       tap(console.log)
-    );
+    );*/
   }
 }
