@@ -40,11 +40,11 @@ export class SearchLessonsComponent implements OnInit {
   constructor(private coursesService: CoursesService) {}
 
   ngOnInit() {}
-
+/*
   onSearch(search: string) {
     this.searchResults$ = this.coursesService.searchLessons(search);
   }
-
+*/
   openLesson(lesson: Lesson) {
     this.activeLesson = lesson;
   }

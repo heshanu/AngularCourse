@@ -4,59 +4,41 @@ import { Course } from '../model/course';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Lesson } from '../model/lesson';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CoursesService {
-  constructor(private http: HttpClient) {
-    this.loadAllCourses();
+  constructor(private http: HttpClient) {}
+
+  //insert data to databse
+  create(user: any): Observable<any> {
+    return this.http.post(`${environment.baseAPIUrl}/users.json`, user);
   }
 
-  loadCourseById(courseId: number) {
-    return this.http
-      .get<Course>(`/api/courses/${courseId}`)
-      .pipe(shareReplay());
-  }
-
-  loadAllCourseLessons(courseId: number): Observable<Lesson[]> {
-    return this.http
-      .get<Lesson[]>('/api/lessons', {
-        params: {
-          pageSize: '10000',
-          courseId: courseId.toString(),
-        },
+  getAll(): Observable<any> {
+    return this.http.get(`${environment.baseAPIUrl}/users.json`).pipe(
+      map((res: any) => {
+        const customers: any[] = [];
+        for (const key in res) {
+          if (res.hasOwnProperty(key)) {
+            customers.push({ ...res[key], id: key });
+          }
+        }
+        return customers;
       })
-      .pipe(
-        map((res: any) => res['payload']),
-        shareReplay()
-      );
-  }
-
-  loadAllCourses(): Observable<Course[]> {
-    return this.http.get<Course[]>('/api/courses').pipe(
-      map((res: any) => res['payload']),
-      shareReplay()
     );
   }
 
-  saveCourse(courseId: string, changes: Partial<Course>): Observable<any> {
-    return this.http
-      .put(`/api/courses/${courseId}`, changes)
-      .pipe(shareReplay());
+  update(customer: any, id: string): Observable<any> {
+    return this.http.put(
+      `${environment.baseAPIUrl}/users/${id}.json`,
+      customer
+    );
   }
 
-  searchLessons(search: string): Observable<Lesson[]> {
-    return this.http
-      .get<Lesson[]>('/api/lessons', {
-        params: {
-          filter: search,
-          pageSize: '100',
-        },
-      })
-      .pipe(
-        map((res: any) => res['payload']),
-        shareReplay()
-      );
+  delete(id: string): Observable<any> {
+    return this.http.delete(`${environment.baseAPIUrl}/users/${id}.json`);
   }
 }

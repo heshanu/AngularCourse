@@ -57,6 +57,7 @@ import { LoadingService } from './loading/loading.service';
 import { RegisterComponent } from './register/register.component';
 //import {MatCardModule} from '@angular/material/card';
 import { MessagesService } from './messages/message.service';
+import { TitleComponent } from './shared/title/title.component';
 //import {CourseCardListComponent} './course-card-list/course-card-list.component';
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { MessagesService } from './messages/message.service';
     SearchLessonsComponent,
     LoadingComponent,
     RegisterComponent,
+    TitleComponent,
   ],
   imports: [
     BrowserModule,

@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
     private auth: AuthStore
   ) {
     this.form = fb.group({
-      email: ['test@angular-university.io', [Validators.required]],
-      password: ['test', [Validators.required]],
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     });
   }
 
