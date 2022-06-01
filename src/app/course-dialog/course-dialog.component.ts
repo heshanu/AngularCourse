@@ -42,9 +42,9 @@ export class CourseDialogComponent {
 
   save() {
     const changes = this.form.value;
-
+/*
     this.coursesStore.saveCourse(this.course.id, changes).subscribe();
-
+*/
     this.dialogRef.close(changes);
   }
 

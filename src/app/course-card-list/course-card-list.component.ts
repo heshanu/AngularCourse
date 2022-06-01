@@ -12,7 +12,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CourseDialogComponent } from '../course-dialog/course-dialog.component';
 import { filter, tap } from 'rxjs/operators';
 import { CoursesStore } from '../services/courses.store';
-import { throws } from 'assert';
+//import { throws } from 'assert';
 @Component({
   selector: 'app-course-card-list',
   templateUrl: './course-card-list.component.html',

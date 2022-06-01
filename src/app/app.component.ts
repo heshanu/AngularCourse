@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingService } from './loading/loading.service';
-import { MessagesService } from './messages/messages.service';
+import { MessagesService } from './messages/message.service';
 import { AuthStore } from './services/auth.store';
 
 @Component({
@@ -14,6 +14,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {}
 
   logout() {
-    this.auth.logout();
+    //this.auth.logout();
   }
 }

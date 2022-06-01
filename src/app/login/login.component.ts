@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     const val = this.form.value;
-
+/*
     this.auth.login(val.email, val.password).subscribe(
       () => {
         this.router.navigateByUrl('/courses');
@@ -34,6 +34,6 @@ export class LoginComponent implements OnInit {
       (err:any) => {
         alert('Login failed!');
       }
-    );
+    );*/
   }
 }
