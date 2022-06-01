@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseAPIUrl:
-    'https://console.firebase.google.com/project/angularonlinecourse/database/angularonlinecourse-default-rtdb/data/~2F',
+    'https://angularfirestore-bdc88-default-rtdb.asia-southeast1.firebasedatabase.app/users',
 };
 
 /*
