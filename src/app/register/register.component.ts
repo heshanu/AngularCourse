@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { AuthStore } from '../services/auth.store';
 import { CoursesService } from '../services/courses.service';
 import { CoursesStore } from '../services/courses.store';
 @Component({
@@ -52,7 +51,7 @@ export class RegisterComponent implements OnInit {
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       email: ['', [Validators.required]],
-      contactNo: ['', [Validators.required]],
+      phoneNumber: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
   }
@@ -112,9 +111,9 @@ export class RegisterComponent implements OnInit {
     this.customerForm.patchValue({
       firstName: customer.firstName,
       lastName: customer.lastName,
-      dob: customer.dob,
-      contactNo: customer.contactNo,
-      address: customer.address,
+      email: customer.email,
+      phoneNumber: customer.phoneNumber,
+      password: customer.password
     });
     console.log(customer);
   }

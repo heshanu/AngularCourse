@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseAPIUrl:
-    'https://angularfirestore-bdc88-default-rtdb.asia-southeast1.firebasedatabase.app/users',
+    'https://angularfirestore-bdc88-default-rtdb.asia-southeast1.firebasedatabase.app',
 };
 
 /*
