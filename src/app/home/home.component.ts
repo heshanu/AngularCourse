@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
 
 
   courseA = [
-    {
+  {
       title: 'Python',
       author: 'heshn',
       duration: '3hr',
@@ -90,7 +90,7 @@ export class HomeComponent implements OnInit {
       duration: '2hr',
       fees: 100,
       image: '../../assets/download1.png',
-    },
+    }
   ];
 
   constructor(
@@ -108,4 +108,12 @@ export class HomeComponent implements OnInit {
 
     this.advancedCourses$ = this.coursesStore.filterByCategory('ADVANCED');
   }
-}
+
+  /*
+  getA(){
+   this.coursesStore.getAllBeginner().subscribe((res:any)=>{
+      console.log(res);
+      this.courseA=res;
+    })*/
+  }
+

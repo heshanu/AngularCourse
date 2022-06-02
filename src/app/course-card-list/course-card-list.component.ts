@@ -34,7 +34,7 @@ export class CourseCardListComponent implements OnInit {
   }
 
   getList() {
-    this.coursesStore.getAll().subscribe((res) => {
+    this.coursesStore.getAll().subscribe((res:any) => {
       console.log(res);
       this.courses = res;
     });

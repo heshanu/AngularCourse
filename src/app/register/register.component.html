@@ -4,7 +4,6 @@
   <mat-card-content>
     <form
       [formGroup]="customerForm"
-      (ngSubmit)="onSaveOrUpdate()"
       class="login-form"
     >
       <mat-form-field>
@@ -15,13 +14,15 @@
           placeholder="firstName"
           formControlName="firstName"
           [ngClass]="{
-            'is-invalid': f['firstName'].errors,
-            'is-valid': !f['invoiceNo'].errors
+            'is-invalid': f['firstName'].errors && f['firstName'].touched,
+            'is-valid': !f['firstName'].errors
           }"
         />
         <div class="invalid-feedback" *ngIf="f['firstName'].errors">
-          <div *ngIf="f['firstName'].errors['required']">
-            Please Enter InvoiceNo
+          <div
+            *ngIf="f['firstName'].errors['required'] && f['firstName'].touched"
+          >
+            Please Enter FirstName
           </div>
         </div>
       </mat-form-field>
@@ -34,6 +35,13 @@
           placeholder="lastName"
           formControlName="lastName"
         />
+        <div class="invalid-feedback" *ngIf="f['lastName'].errors">
+          <div
+            *ngIf="f['lastName'].errors['required'] && f['lastName'].touched"
+          >
+            Please Enter lastName
+          </div>
+        </div>
       </mat-form-field>
 
       <mat-form-field>
@@ -43,6 +51,11 @@
           placeholder="Email"
           formControlName="email"
         />
+        <div class="invalid-feedback" *ngIf="f['email'].errors">
+          <div *ngIf="f['email'].errors['required'] && f['email'].touched">
+            Please Enter email
+          </div>
+        </div>
       </mat-form-field>
 
       <mat-form-field>
@@ -52,6 +65,11 @@
           placeholder="Password"
           formControlName="password"
         />
+        <div class="invalid-feedback" *ngIf="f['password'].errors">
+          <div *ngIf="f['password'].errors['required'] && f['password'].touched">
+            Please Enter password
+          </div>
+        </div>
       </mat-form-field>
 
       <mat-form-field>
@@ -61,14 +79,18 @@
           placeholder="phoneNumber"
           formControlName="phoneNumber"
         />
+        <div class="invalid-feedback" *ngIf="f['phoneNumber'].errors">
+          <div *ngIf="f['phoneNumber'].errors['required'] && f['phoneNumber'].touched">
+            Please Enter phone number
+          </div>
+        </div>
       </mat-form-field>
 
       <button
         mat-raised-button
         type="submit"
         color="primary"
-        (click)="onUpdate(customerList)"
-        [disabled]="form.invalid"
+        (click)="onSaveOrUpdate()"
       >
         Register
       </button>

@@ -80,7 +80,7 @@ export class CoursesStore {
   }
 
   getAll(): Observable<any> {
-    return this.http.get(`${environment.baseAPIUrl}/course.json`)
+    return this.http.get(`${environment.baseAPIUrl}/courseDetailsA.json`)
       .pipe(
         map((res:any) => {
           const courses: any[] = [];

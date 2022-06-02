@@ -17,6 +17,18 @@ export class CoursesService {
     return this.http.post(`${environment.baseAPIUrl}/users.json`, user);
   }
 
+  getCourse():Observable<any>{
+        return this.http.get(`${environment.baseAPIUrl}/users.json}`).pipe(
+          map((res:any)=>{
+            const courseDetails:any[]=[];
+            for(const k in res){
+              
+            }
+          })
+        )
+  }
+
+
   getAll(): Observable<any> {
     return this.http.get(`${environment.baseAPIUrl}/users.json`).pipe(
       map((res: User) => {

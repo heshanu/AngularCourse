@@ -12,6 +12,7 @@ import { CoursesStore } from '../services/courses.store';
 })
 export class RegisterComponent implements OnInit {
   form!: FormGroup;
+  submitted1: any;
 
   constructor(
     private fb: FormBuilder,
@@ -62,13 +63,12 @@ export class RegisterComponent implements OnInit {
       return;
     }
     this.loading.next(true);
-    submitted1:"true"
     if (this.isUpdate) {
       //update record
       this.customerservice
         .update(this.customerForm.value, this.selectedId)
         .subscribe((res) => {
-          //console.log(res);
+          console.log("Sucessfully inserted");
           this.getList();
           alert('Record has been updated!');
           this.loading.next(false);
@@ -104,6 +104,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onUpdate(customer: any): void {
+    this.submitted1=true;
     this.isUpdate = true;
     this.selectedId = customer.id;
 
