@@ -61,9 +61,8 @@ export class RegisterComponent implements OnInit {
       alert('Please fill required fields');
       return;
     }
-
     this.loading.next(true);
-
+    submitted1:"true"
     if (this.isUpdate) {
       //update record
       this.customerservice

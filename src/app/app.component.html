@@ -16,6 +16,7 @@
         <mat-icon>question_answer</mat-icon>
         <span>About</span>
       </a>
+
       <a mat-list-item routerLink="register">
         <mat-icon>person_add</mat-icon>
         <span>Register</span>
@@ -40,24 +41,17 @@
         <mat-icon>exit_to_app</mat-icon>
         <span>Logout</span>
       </a>
-
     </mat-nav-list>
-
   </mat-sidenav>
 
   <mat-toolbar color="primary">
-
     <div class="toolbar-tools">
-
       <button mat-icon-button (click)="start.open('mouse')">
         <mat-icon>menu</mat-icon>
       </button>
-
+      <h1>FreeCourseWare</h1>
       <div class="filler"></div>
-
     </div>
-
-
   </mat-toolbar>
 
   <app-messages></app-messages>
@@ -65,5 +59,4 @@
   <app-loading></app-loading>
 
   <router-outlet></router-outlet>
-
 </mat-sidenav-container>
