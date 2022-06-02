@@ -13,7 +13,7 @@ import { CoursesStore } from '../services/courses.store';
 export class RegisterComponent implements OnInit {
   form!: FormGroup;
   submitted1: any;
-  isSuccess!:boolean;
+  isSuccess!: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -22,11 +22,11 @@ export class RegisterComponent implements OnInit {
     private customerservice: CoursesService
   ) {
     this.form = fb.group({
-      firstName: ['', [Validators.required,Validators.pattern(' ^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$')]],
-      lastName: ['', [Validators.required,Validators.pattern(' ^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$')]],
-      email: ['', [Validators.required,Validators.pattern("/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/")]],
-      password: ['', [Validators.required,Validators.minLength(8),Validators.pattern("(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$")]],
-      phoneNumber: ['', [Validators.required,Validators.pattern("0((11)|(2(1|[3-7]))|(3[1-8])|(4(1|5|7))|(5(1|2|4|5|7))|(6(3|[5-7]))|([8-9]1))[0-9]{7}")]],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      phoneNumber: ['', Validators.required]
     });
   }
 
@@ -50,11 +50,46 @@ export class RegisterComponent implements OnInit {
 
   initForm(): void {
     this.customerForm = this.fb.group({
-      firstName: ['', [Validators.required,Validators.pattern(' ^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$')]],
-      lastName: ['', [Validators.required,Validators.pattern(' ^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$')]],
-      email: ['', [Validators.required,Validators.pattern("/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/")]],
-      password: ['', [Validators.required,Validators.minLength(8),Validators.pattern("(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$")]],
-      phoneNumber: ['', [Validators.required,Validators.pattern("0((11)|(2(1|[3-7]))|(3[1-8])|(4(1|5|7))|(5(1|2|4|5|7))|(6(3|[5-7]))|([8-9]1))[0-9]{7}")]],
+      firstName: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(' ^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$'),
+        ],
+      ],
+      lastName: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(' ^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$'),
+        ],
+      ],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/'),
+        ],
+      ],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.pattern(
+            '(?=^.{8,}$)((?=.*d)|(?=.*W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$'
+          ),
+        ],
+      ],
+      phoneNumber: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            '0((11)|(2(1|[3-7]))|(3[1-8])|(4(1|5|7))|(5(1|2|4|5|7))|(6(3|[5-7]))|([8-9]1))[0-9]{7}'
+          ),
+        ],
+      ],
     });
   }
 
@@ -69,7 +104,7 @@ export class RegisterComponent implements OnInit {
       this.customerservice
         .update(this.customerForm.value, this.selectedId)
         .subscribe((res) => {
-          console.log("Sucessfully inserted");
+          console.log('Sucessfully inserted');
           this.getList();
           alert('Record has been updated!');
           this.loading.next(false);
@@ -93,8 +128,8 @@ export class RegisterComponent implements OnInit {
     }
     setTimeout(() => {
       console.log('Response');
-      isSuccess:true;
-      alert("suceefully added!");
+      isSuccess: true;
+      alert('suceefully added!');
       this.submitted = true;
     }, 1000);
   }
@@ -107,7 +142,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onUpdate(customer: any): void {
-    this.submitted1=true;
+    this.submitted1 = true;
     this.isUpdate = true;
     this.selectedId = customer.id;
 
@@ -116,7 +151,7 @@ export class RegisterComponent implements OnInit {
       lastName: customer.lastName,
       email: customer.email,
       phoneNumber: customer.phoneNumber,
-      password: customer.password
+      password: customer.password,
     });
     console.log(customer);
   }
