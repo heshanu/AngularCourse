@@ -60,6 +60,7 @@ import { MessagesService } from './messages/message.service';
 import { TitleComponent } from './shared/title/title.component';
 import { ActiveUsersComponent } from './active-users/active-users.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { AlertsComponent } from './shared/alerts/alerts.component';
 //import {CourseCardListComponent} './course-card-list/course-card-list.component';
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
     TitleComponent,
     ActiveUsersComponent,
     FeedbackComponent,
+    AlertsComponent,
   ],
   imports: [
     BrowserModule,
