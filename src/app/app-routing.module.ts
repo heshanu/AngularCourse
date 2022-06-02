@@ -6,6 +6,8 @@ import { CourseComponent } from './course/course.component';
 import { LoginComponent } from './login/login.component';
 import { SearchLessonsComponent } from './search-lessons/search-lessons.component';
 import { RegisterComponent } from './register/register.component';
+import { ActiveUsersComponent } from './active-users/active-users.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 const routes: Routes = [
   {
@@ -31,6 +33,14 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'activeUsers',
+    component: ActiveUsersComponent,
+  },
+  {
+    path: 'feedback',
+    component: FeedbackComponent,
   },
   {
     path: '**',

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Lesson } from '../model/lesson';
 import { environment } from 'src/environments/environment';
-
+import { User } from '../model/user';
 @Injectable({
   providedIn: 'root',
 })
@@ -19,11 +19,11 @@ export class CoursesService {
 
   getAll(): Observable<any> {
     return this.http.get(`${environment.baseAPIUrl}/users.json`).pipe(
-      map((res: any) => {
+      map((res: User) => {
         const customers: any[] = [];
         for (const key in res) {
           if (res.hasOwnProperty(key)) {
-            customers.push({ ...res[key], id: key });
+            customers.push({res, id: key });
           }
         }
         return customers;

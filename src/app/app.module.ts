@@ -58,6 +58,8 @@ import { RegisterComponent } from './register/register.component';
 //import {MatCardModule} from '@angular/material/card';
 import { MessagesService } from './messages/message.service';
 import { TitleComponent } from './shared/title/title.component';
+import { ActiveUsersComponent } from './active-users/active-users.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 //import {CourseCardListComponent} './course-card-list/course-card-list.component';
 @NgModule({
   declarations: [
@@ -75,6 +77,8 @@ import { TitleComponent } from './shared/title/title.component';
     LoadingComponent,
     RegisterComponent,
     TitleComponent,
+    ActiveUsersComponent,
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,
