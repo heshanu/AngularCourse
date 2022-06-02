@@ -1,28 +1,41 @@
-
 <div class="courses-panel">
   <h3>All Courses</h3>
 
   <mat-tab-group>
-
-      <mat-tab label="Beginners">
-
-          <app-course-card-list [courses]="beginnerCourses$ | async">
-
-          </app-course-card-list>
-
-      </mat-tab>
-
-  <mat-tab label="Advanced">
-
-      <app-course-card-list [courses]="advancedCourses$ | async">
-
+    <mat-tab label="Beginners">
+      <div class="card" style="width: 18rem" *ngFor="let c of courseB">
+        <img class="card-img-top" [src]="c.image" src="..." alt="Card image cap" />
+        <div class="card-body" >
+          <h3 class="card-title">{{c.title}}</h3>
+          <p class="card-text">
+            this course is spefic for beginers from scratch!
+          </p>
+          <h4>fee:{{c.fees|currency:'$'}}</h4>
+          <a href="#" class="btn btn-primary">View Demo</a>
+        </div>
+        <hr>
+      </div>
+<br><br>
+      <app-course-card-list [courses]="beginnerCourses$ | async">
       </app-course-card-list>
+    </mat-tab>
 
-
-  </mat-tab>
-
-</mat-tab-group>
-
-
+    <mat-tab label="Advanced">
+      <div class="card" style="width: 18rem" *ngFor="let c of courseA">
+        <img class="card-img-top" [src]="c.image" src="..." alt="Card image cap" />
+        <div class="card-body" >
+          <h3 class="card-title">{{c.title}}</h3>
+          <p class="card-text">
+            this course is spefic for beginers from scratch!
+          </p>
+          <h4>fee:{{c.fees|currency:'$'}}</h4>
+          <a href="#" class="btn btn-primary">View Demo</a>
+        </div>
+        <hr>
+      </div>
+      <br><br>
+      <app-course-card-list [courses]="advancedCourses$ | async">
+      </app-course-card-list>
+    </mat-tab>
+  </mat-tab-group>
 </div>
-

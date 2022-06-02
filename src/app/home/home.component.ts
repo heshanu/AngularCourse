@@ -16,11 +16,87 @@ export class HomeComponent implements OnInit {
   beginnerCourses$!: Observable<Course[]>;
 
   advancedCourses$!: Observable<Course[]>;
+  courseB = [
+    {
+      title: 'Angular',
+      author: 'heshn',
+      duration: '3hr',
+      fees: 200,
+      image: '../../assets/download1.png',
+    },
+    {
+      title: 'React',
+      author: 'heshn',
+      duration: '2hr',
+      fees: 100,
+      image: '../../assets/download1.png',
+    },
+    {
+      title: 'React',
+      author: 'heshn',
+      duration: '2hr',
+      fees: 100,
+      image: '../../assets/download1.png',
+    },
+    {
+      title: 'React',
+      author: 'heshn',
+      duration: '2hr',
+      fees: 100,
+      image: '../../assets/download1.png',
+    },
+    {
+      title: 'React',
+      author: 'heshn',
+      duration: '2hr',
+      fees: 100,
+      image: '../../assets/download1.png',
+    },
+  ];
+
+
+  courseA = [
+    {
+      title: 'Python',
+      author: 'heshn',
+      duration: '3hr',
+      fees: 500,
+      image: '../../assets/download2.png',
+    },
+    {
+      title: 'React',
+      author: 'heshn',
+      duration: '2hr',
+      fees: 100,
+      image: '../../assets/download1.png',
+    },
+    {
+      title: 'React',
+      author: 'heshn',
+      duration: '2hr',
+      fees: 100,
+      image: '../../assets/download1.png',
+    },
+    {
+      title: 'React',
+      author: 'heshn',
+      duration: '2hr',
+      fees: 100,
+      image: '../../assets/download1.png',
+    },
+    {
+      title: 'React',
+      author: 'heshn',
+      duration: '2hr',
+      fees: 100,
+      image: '../../assets/download1.png',
+    },
+  ];
 
   constructor(
     private coursesStore: CoursesStore,
     private coursesService: CoursesService,
-    private dialog:MatDialog
+    private dialog: MatDialog
   ) {}
 
   ngOnInit() {
