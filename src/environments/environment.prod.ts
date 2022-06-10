@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  baseAPIUrl:
+    'https://angularfirestore-bdc88-default-rtdb.asia-southeast1.firebasedatabase.app'
 };

@@ -6,19 +6,21 @@
   <mat-tab-group>
     <mat-tab label="Users">
       <div class="card" style="width: 18rem" *ngFor="let c of users">
-        <img class="card-img-top" [src]="c.image" src="..." alt="Card image cap" />
-        <div class="card-body" >
-          <h3 class="card-title">{{c.title}}</h3>
-          <p class="card-text">
-            this course is spefic for beginers from scratch!
-          </p>
-          <h4>fee:{{c.fees|currency:'$'}}</h4>
-          <a href="#" class="btn btn-primary">View Demo</a>
+        <div class="card-body">
+          <h2>{{ c.username }}</h2>
+          <br />
+          <h5
+            class="card-title"
+            [ngStyle]="{'background-color':c.status=='active' ?  'yellow': 'red'}"
+          >
+            {{ c.status }}
+          </h5>
+          <h4>{{ c.lastSeen }}</h4>
+          <br />
         </div>
-        <hr>
+        <hr />
       </div>
-<br><br>
+      <br /><br />
     </mat-tab>
   </mat-tab-group>
 </div>
-

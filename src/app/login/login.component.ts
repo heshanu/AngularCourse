@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   password!: '';
   emaildb!: '';
   passworddb!: '';
+  users!: any[];
 
   constructor(
     private fb: FormBuilder,
@@ -33,20 +34,18 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   login() {
-    //  const val = this.form.value.email;
     this.email = this.form.value.email;
     this.password = this.form.value.password;
     console.log(this.email + this.password);
+    if(this.email='test@gmail.com' && this.password='test'){
 
-    this.auth.getAllEmail().subscribe((res: any) => {
-      //this.emaildb = res[0];
-      //this.password = res[3];
-      console.log(res[0].res.id);
-    });
+    }else{
 
+    }
 
+  }
 
-    /*
+  /*
      this.customerservice.create(this.customerForm.value).subscribe(
         (res) => {
           //after submiting form and clear
@@ -62,9 +61,9 @@ export class LoginComponent implements OnInit {
         }
       );
     */
-  }
+}
 
-  /*
+/*
     this.auth.login(val.email, val.password).subscribe(
       () => {
         this.router.navigateByUrl('/courses');
@@ -73,4 +72,3 @@ export class LoginComponent implements OnInit {
         alert('Login failed!');
       }
     );*/
-}

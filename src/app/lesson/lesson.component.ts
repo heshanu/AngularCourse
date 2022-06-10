@@ -7,12 +7,9 @@ import { Lesson } from '../model/lesson';
   styleUrls: ['./lesson.component.scss'],
 })
 export class LessonComponent implements OnInit {
-  @Input()
-  lesson!:Lesson;
+  @Input() lesson!: Lesson;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 }

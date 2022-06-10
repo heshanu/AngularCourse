@@ -12,7 +12,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: LoginComponent,
   },
   {
     path: 'register',

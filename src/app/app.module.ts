@@ -10,7 +10,7 @@ import { MatSliderModule } from '@angular/material/slider';
 //import { AboutComponent } from './about/about.component';
 //import { CommonComponent } from './common/common.component';
 //import { CourseComponent } from './course/course.component';
-//import { CourseDialogComponent } from './course-dialog/course-dialog.component';
+//import {CourseDialogComponent, CourseDialogComponent} from './course-dialog/course-dialog.component';
 import { CourseCardListComponent } from './course-card-list/course-card-list.component';
 //import { HomeComponent } from './home/home.component';
 //import { LessonComponent } from './lesson/lesson.component';
@@ -104,9 +104,9 @@ import { AlertsComponent } from './shared/alerts/alerts.component';
     MatSelectModule,
     MatDatepickerModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
   ],
-  providers: [LoadingService,MessagesService],
+  providers: [LoadingService, MessagesService],
   bootstrap: [AppComponent],
   entryComponents: [CourseDialogComponent],
 })

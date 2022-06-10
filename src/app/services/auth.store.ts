@@ -20,9 +20,7 @@ export class AuthStore {
   isLoggedIn$!: Observable<boolean>;
   isLoggedOut$!: Observable<boolean>;
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) {}
 
   getAll(): Observable<any> {
     return this.http.get(`${environment.baseAPIUrl}/users.json`).pipe(
@@ -38,21 +36,13 @@ export class AuthStore {
     );
   }
 
-  getAllEmail(): Observable<any> {
+  getUsers() {
     return this.http.get(`${environment.baseAPIUrl}/users.json`).pipe(
-      map((res: User) => {
-        const customers: any[] = [];
-        for (const key in res) {
-          if (res.hasOwnProperty(key)) {
-            customers.push({res});
-          }
-        }
-        return customers;
-      })
-    );
+      map(res => {
+      const data = res;
+      return data;
+    }))
   }
-
-
   /*
 
   constructor(private http: HttpClient) {
@@ -73,4 +63,5 @@ export class AuthStore {
     //this.subject.next();
     localStorage.removeItem(AUTH_DATA);
   }*/
+
 }
