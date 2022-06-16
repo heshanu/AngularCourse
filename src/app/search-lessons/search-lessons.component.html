@@ -37,9 +37,9 @@
           <tr *ngFor="let a of courseA| filter:searchText">
 
             <td>{{a.title}}</td>
-            <td>{{a.author}}</td>
-            <td>{{a.duration}}</td>
-            <td>{{a.fees}}</td>
+            <td>{{a.author| uppercase}}</td>
+            <td>{{a.duration|titlecase}}</td>
+            <td>{{a.fees| currency}}</td>
 
           </tr>
         </table>

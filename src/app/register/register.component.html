@@ -1,13 +1,18 @@
 <app-title></app-title>
-<app-alerts [message]="'Suceefully inserted!'" [type]="'primary'" *ngIf="isSuccess"></app-alerts>
-<app-alerts [message]="'UnSuceefully inserted!'" [type]="'danger'" *ngIf="isSuccess==false"></app-alerts>
+<app-alerts
+  [message]="'Suceefully inserted!'"
+  [type]="'primary'"
+  *ngIf="isSuccess"
+></app-alerts>
+<app-alerts
+  [message]="'UnSuceefully inserted!'"
+  [type]="'danger'"
+  *ngIf="isSuccess == false"
+></app-alerts>
 <mat-card class="login-page">
   <mat-card-title>Register</mat-card-title>
   <mat-card-content>
-    <form
-      [formGroup]="customerForm"
-      class="login-form"
-    >
+    <form [formGroup]="customerForm" class="login-form">
       <mat-form-field>
         <input
           matInput
@@ -29,7 +34,7 @@
           <div
             *ngIf="f['firstName'].errors['pattern'] && f['firstName'].touched"
           >
-             FirstName cannot be numbers
+            FirstName cannot be numbers
           </div>
         </div>
       </mat-form-field>
@@ -48,11 +53,9 @@
           >
             Please Enter lastName
           </div>
-          <div
-          *ngIf="f['lastName'].errors['pattern'] && f['lastName'].touched"
-        >
-           lastName cannot be numbers
-        </div>
+          <div *ngIf="f['lastName'].errors['pattern'] && f['lastName'].touched">
+            lastName cannot be numbers
+          </div>
         </div>
       </mat-form-field>
 
@@ -67,11 +70,6 @@
           <div *ngIf="f['email'].errors['required'] && f['email'].touched">
             Please Enter email
           </div>
-          <div
-          *ngIf="f['email'].errors['pattern'] && f['email'].touched"
-        >
-           please check your email address
-        </div>
         </div>
       </mat-form-field>
 
@@ -83,14 +81,11 @@
           formControlName="password"
         />
         <div class="invalid-feedback" *ngIf="f['password'].errors">
-          <div *ngIf="f['password'].errors['required'] && f['password'].touched">
+          <div
+            *ngIf="f['password'].errors['required'] && f['password'].touched"
+          >
             Please Enter password
           </div>
-          <div
-          *ngIf="f['password'].errors['pattern'] && f['password'].touched"
-        >
-           please check your password ,enter alpanurmeric values
-        </div>
         </div>
       </mat-form-field>
 
@@ -102,14 +97,13 @@
           formControlName="phoneNumber"
         />
         <div class="invalid-feedback" *ngIf="f['phoneNumber'].errors">
-          <div *ngIf="f['phoneNumber'].errors['required'] && f['phoneNumber'].touched">
+          <div
+            *ngIf="
+              f['phoneNumber'].errors['required'] && f['phoneNumber'].touched
+            "
+          >
             Please Enter phone number
           </div>
-          <div
-          *ngIf="f['phoneNumber'].errors['pattern'] && f['phoneNumber'].touched"
-        >
-           please check phonenumbers!
-        </div>
         </div>
       </mat-form-field>
 

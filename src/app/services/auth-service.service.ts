@@ -9,6 +9,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class AuthServiceService {
+  isLoggedIn = false;
+  isAuthenticated() {
+    return this.isLoggedIn;
+  }
   constructor(private router: Router, private http: HttpClient) {}
   loginUser(email: string, password: string): Observable<any> {
     var users: any[] = [];

@@ -9,11 +9,12 @@ import { RegisterComponent } from './register/register.component';
 import { ActiveUsersComponent } from './active-users/active-users.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { DeactivateGuardGuard } from './guard/deactivate-guard.guard';
+import { UserGuard } from './guard/user.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent,
+    component: LoginComponent
   },
   {
     path: 'register',
@@ -41,12 +42,11 @@ const routes: Routes = [
   },
   {
     path: 'activeUsers',
-    component: ActiveUsersComponent,
+    component: ActiveUsersComponent
   },
   {
     path: 'feedback',
     component: FeedbackComponent
-
   },
   {
     path: '**',

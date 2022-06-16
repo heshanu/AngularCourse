@@ -7,7 +7,7 @@
 <app-alerts
   [message]="'UnSuceefully inserted!'"
   [type]="'danger'"
-  *ngIf="isSuccess==false"
+  *ngIf="isSuccess == false"
 ></app-alerts>
 <mat-card class="login-page">
   <mat-card-title>FeedBack</mat-card-title>
@@ -31,13 +31,12 @@
           >
             Please Enter FirstName
           </div>
-
         </div>
       </mat-form-field>
 
       <mat-form-field>
         <input
-        name="email"
+          name="email"
           matInput
           type="email"
           placeholder="Email"
@@ -47,7 +46,6 @@
           <div *ngIf="f['email'].errors['required'] && f['email'].touched">
             Please Enter email
           </div>
-
         </div>
       </mat-form-field>
 
@@ -67,19 +65,16 @@
 <mat-card>
   <ng-container>
     <ng-container>
-      <table class="lessons-table mat-elevation-z7" style="margin-left:500px">
+      <table class="lessons-table mat-elevation-z7" style="margin-left: 500px">
         <thead>
           <th>Name</th>
           <th>Rating</th>
           <th>Star</th>
         </thead>
         <tr *ngFor="let a of feedbacK">
-
-          <td>{{a.name}}</td>
-          <td>{{a.ration}}</td>
-          <td><i class="fa fa-star" aria-hidden="true"></i>*{{a.star}}</td>
-
-
+          <td>{{ a.name }}</td>
+          <td>{{ a.ration }}</td>
+          <td>{{a.star}}*</td>
         </tr>
       </table>
     </ng-container>

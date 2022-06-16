@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
       lastName: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
-      phoneNumber: ['', Validators.required]
+      phoneNumber: ['', Validators.required],
     });
   }
 
@@ -54,21 +54,21 @@ export class RegisterComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern(' ^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$'),
+          Validators.pattern("^([ \u00c0-\u01ffa-zA-Z'-])+$"),
         ],
       ],
       lastName: [
         '',
         [
           Validators.required,
-          Validators.pattern(' ^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$'),
+          Validators.pattern("^([ \u00c0-\u01ffa-zA-Z'-])+$"),
         ],
       ],
       email: [
         '',
         [
           Validators.required,
-          Validators.pattern('/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/'),
+          Validators.pattern("[a-z0-9]+@[a-z]+\.edu\.[a-z]{2,3}"),
         ],
       ],
       password: [
@@ -76,18 +76,14 @@ export class RegisterComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(8),
-          Validators.pattern(
-            '(?=^.{8,}$)((?=.*d)|(?=.*W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$'
-          ),
+
         ],
       ],
       phoneNumber: [
         '',
         [
           Validators.required,
-          Validators.pattern(
-            '0((11)|(2(1|[3-7]))|(3[1-8])|(4(1|5|7))|(5(1|2|4|5|7))|(6(3|[5-7]))|([8-9]1))[0-9]{7}'
-          ),
+
         ],
       ],
     });

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -11,9 +11,13 @@ import { AlertsComponent } from '../shared/alerts/alerts.component';
   styleUrls: ['./feedback.component.scss'],
 })
 export class FeedbackComponent implements OnInit {
+ 
   form!: FormGroup;
   submitted1: any;
   isSuccess!: boolean;
+
+
+
 
   constructor(
     private fb: FormBuilder,
@@ -34,23 +38,23 @@ export class FeedbackComponent implements OnInit {
   customerList: any[] = [];
   submitted: boolean = false;
   isUpdate = false;
+
   feedbacK: any[] = [
     {
-      name:"Heshan",
-      ration:"good work",
-      star:5
+      name: 'Heshan',
+      ration: 'good work',
+      star: 5,
     },
     {
-      name:"Heshan",
-      ration:"good work",
-      star:5
+      name: 'Heshan',
+      ration: 'good work',
+      star: 5,
     },
     {
-      name:"Heshan",
-      ration:"good work",
-      star:5
+      name: 'Heshan',
+      ration: 'good work',
+      star: 5,
     },
-
   ];
   get f() {
     return this.customerForm.controls;

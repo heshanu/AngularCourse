@@ -9,12 +9,12 @@
         <div class="card-body">
           <h2>{{ c.username }}</h2>
           <br />
-          <h5
+          <h3
             class="card-title"
             [ngStyle]="{'background-color':c.status=='active' ?  'yellow': 'red'}"
           >
-            {{ c.status }}
-          </h5>
+            {{ c.status|uppercase }}
+          </h3>
           <h4>{{ c.lastSeen }}</h4>
           <br />
         </div>
