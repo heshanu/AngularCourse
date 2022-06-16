@@ -63,6 +63,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { AlertsComponent } from './shared/alerts/alerts.component';
 //import {CourseCardListComponent} './course-card-list/course-card-list.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { DeactivateGuardGuard } from './guard/deactivate-guard.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -109,7 +110,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatCardModule,
     Ng2SearchPipeModule,
   ],
-  providers: [LoadingService, MessagesService],
+  providers: [LoadingService, MessagesService,DeactivateGuardGuard],
   bootstrap: [AppComponent],
   entryComponents: [CourseDialogComponent],
 })

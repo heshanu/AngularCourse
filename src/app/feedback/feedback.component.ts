@@ -34,7 +34,24 @@ export class FeedbackComponent implements OnInit {
   customerList: any[] = [];
   submitted: boolean = false;
   isUpdate = false;
+  feedbacK: any[] = [
+    {
+      name:"Heshan",
+      ration:"good work",
+      star:5
+    },
+    {
+      name:"Heshan",
+      ration:"good work",
+      star:5
+    },
+    {
+      name:"Heshan",
+      ration:"good work",
+      star:5
+    },
 
+  ];
   get f() {
     return this.customerForm.controls;
   }

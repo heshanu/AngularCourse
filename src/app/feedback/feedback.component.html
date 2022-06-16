@@ -63,3 +63,25 @@
     </form>
   </mat-card-content>
 </mat-card>
+
+<mat-card>
+  <ng-container>
+    <ng-container>
+      <table class="lessons-table mat-elevation-z7" style="margin-left:500px">
+        <thead>
+          <th>Name</th>
+          <th>Rating</th>
+          <th>Star</th>
+        </thead>
+        <tr *ngFor="let a of feedbacK">
+
+          <td>{{a.name}}</td>
+          <td>{{a.ration}}</td>
+          <td><i class="fa fa-star" aria-hidden="true"></i>*{{a.star}}</td>
+
+
+        </tr>
+      </table>
+    </ng-container>
+  </ng-container>
+</mat-card>

@@ -8,6 +8,7 @@ import { SearchLessonsComponent } from './search-lessons/search-lessons.componen
 import { RegisterComponent } from './register/register.component';
 import { ActiveUsersComponent } from './active-users/active-users.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { DeactivateGuardGuard } from './guard/deactivate-guard.guard';
 
 const routes: Routes = [
   {
@@ -16,23 +17,23 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterComponent,
+    component: RegisterComponent
   },
   {
     path: 'search-lessons',
-    component:SearchLessonsComponent,
+    component:SearchLessonsComponent
   },
   {
     path: 'about',
-    component: AboutComponent,
+    component: AboutComponent
   },
   {
     path: 'home',
-    component:HomeComponent,
+    component:HomeComponent
   },
   {
     path: 'courses/:courseId',
-    component: CourseComponent,
+    component: CourseComponent
   },
   {
     path: 'login',
@@ -44,7 +45,8 @@ const routes: Routes = [
   },
   {
     path: 'feedback',
-    component: FeedbackComponent,
+    component: FeedbackComponent
+
   },
   {
     path: '**',
