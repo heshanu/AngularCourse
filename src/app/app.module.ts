@@ -62,6 +62,7 @@ import { ActiveUsersComponent } from './active-users/active-users.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { AlertsComponent } from './shared/alerts/alerts.component';
 //import {CourseCardListComponent} './course-card-list/course-card-list.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @NgModule({
   declarations: [
     AppComponent,
@@ -106,6 +107,7 @@ import { AlertsComponent } from './shared/alerts/alerts.component';
     ReactiveFormsModule,
     FormsModule,
     MatCardModule,
+    Ng2SearchPipeModule,
   ],
   providers: [LoadingService, MessagesService],
   bootstrap: [AppComponent],

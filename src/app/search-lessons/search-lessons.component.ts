@@ -125,19 +125,14 @@ export class SearchLessonsComponent implements OnInit {
   ngOnInit() {}
   flag: boolean = false;
   i!: any[];
-  Search() {
+  onSearch() {
+    this.flag = true;
     //this.search = this.form.value.search;
     //console.log(this.search);
     // for (const key in this.courseA) {
     //   if (this.courseA.find((x) => x.title== this.search)) {
     //     this.flag = true;
     //   }
-    if (this.searchText !== '') {
-      this.arr = this.arr.filter((res) => {
-        return res['searchText'].toLocalelowerCase().match(this.searchText);
-      });
-    } else {
-      alert('Please enter values');
-    }
+
   }
 }

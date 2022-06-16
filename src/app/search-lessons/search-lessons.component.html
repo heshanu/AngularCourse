@@ -10,11 +10,11 @@
       name="search"
       [(ngModel)]="searchText"
       [ngModelOptions]="{standalone: true}"
-      (ngModelChange)="Search()"
+
     />
   </mat-form-field>
 
-  <button class="search" mat-raised-button color="primary"></button>
+  <button class="search" mat-raised-button color="primary" (click)="onSearch()"></button>
     <button
       class="search"
       mat-raised-button
@@ -25,17 +25,22 @@
     </button>
     </form>
 
-    <ng-container *ngIf="flag">
+    <ng-container>
       <ng-container>
         <table class="lessons-table mat-elevation-z7">
           <thead>
             <th>title</th>
-            <th>Description</th>
+            <th>Author</th>
             <th>Duration</th>
+            <th>Fees</th>
           </thead>
-          <tr *ngFor="let a of arr">
+          <tr *ngFor="let a of courseA| filter:searchText">
 
-            <td>{{a}}</td>
+            <td>{{a.title}}</td>
+            <td>{{a.author}}</td>
+            <td>{{a.duration}}</td>
+            <td>{{a.fees}}</td>
+
           </tr>
         </table>
       </ng-container>
