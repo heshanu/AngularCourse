@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { map } from 'rxjs';
 import { AuthStore } from '../services/auth.store';
 import { CoursesService } from '../services/courses.service';
+import { AuthServiceService } from '../services/auth-service.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private auth: AuthStore,
-    private cou: CoursesService
+    private cou: CoursesService,
+    private authService: AuthServiceService
   ) {
     this.form = fb.group({
       email: ['', [Validators.required]],
@@ -37,11 +39,20 @@ export class LoginComponent implements OnInit {
     this.email = this.form.value.email;
     this.password = this.form.value.password;
     console.log(this.email + this.password);
-    if(this.email='test@gmail.com' && this.password='test'){
 
-    }else{
+    this.authService.loginUser(this.email,this.password).subscribe((result:any)=>{
+      if(result){
+        this.router.navigate(['/home']);
+        console.log("s");
+      }else{
+        this.router.navigate(['']);
+        console.log('f');
+      }
+    })
 
-    }
+
+   // dbEmail=this.auth.getUsers
+
 
   }
 
@@ -72,3 +83,6 @@ export class LoginComponent implements OnInit {
         alert('Login failed!');
       }
     );*/
+
+
+

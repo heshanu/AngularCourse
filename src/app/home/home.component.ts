@@ -1,5 +1,5 @@
 //import { Component, OnInit } from '@angular/core';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Course } from '../model/course';
 import { Observable } from 'rxjs';
 import { CoursesStore } from '../services/courses.store';
@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   beginnerCourses$!: Observable<Course[]>;
 
   advancedCourses$!: Observable<Course[]>;
-  courseB = [
+courseB = [
     {
       title: 'Angular',
       author: 'heshn',

@@ -3,7 +3,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  EventEmitter,
   OnInit,
+  Output,
   ViewChild,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -24,7 +26,6 @@ import {
 import { merge, fromEvent, Observable, concat } from 'rxjs';
 import { Lesson } from '../model/lesson';
 import { CoursesService } from '../services/courses.service';
-
 @Component({
   selector: 'app-search-lessons',
   templateUrl: './search-lessons.component.html',
@@ -32,24 +33,95 @@ import { CoursesService } from '../services/courses.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchLessonsComponent implements OnInit {
-  searchResults$!: Observable<Lesson[]>;
+  //searchResults!: any[];
+  searchValue: string = '';
 
-  activeLesson!: Lesson;
+  activeLesson!: any[];
 
+  courseB: any = [
+    {
+      title: 'Angular',
+      author: 'heshn',
+      duration: '3hr',
+      fees: 200,
+      image: '../../assets/download1.png',
+    },
+    {
+      title: 'React',
+      author: 'heshn',
+      duration: '2hr',
+      fees: 100,
+      image: '../../assets/download1.png',
+    },
+    {
+      title: 'React',
+      author: 'heshn',
+      duration: '2hr',
+      fees: 100,
+      image: '../../assets/download1.png',
+    },
+    {
+      title: 'React',
+      author: 'heshn',
+      duration: '2hr',
+      fees: 100,
+      image: '../../assets/download1.png',
+    },
+    {
+      title: 'React',
+      author: 'heshn',
+      duration: '2hr',
+      fees: 100,
+      image: '../../assets/download1.png',
+    },
+  ];
+
+  courseA = [
+    {
+      title: 'Python',
+      author: 'heshn',
+      duration: '3hr',
+      fees: 500,
+      image: '../../assets/download2.png',
+    },
+    {
+      title: 'React',
+      author: 'heshn',
+      duration: '2hr',
+      fees: 100,
+      image: '../../assets/download1.png',
+    },
+    {
+      title: 'React',
+      author: 'heshn',
+      duration: '2hr',
+      fees: 100,
+      image: '../../assets/download1.png',
+    },
+    {
+      title: 'React',
+      author: 'heshn',
+      duration: '2hr',
+      fees: 100,
+      image: '../../assets/download1.png',
+    },
+    {
+      title: 'React',
+      author: 'heshn',
+      duration: '2hr',
+      fees: 100,
+      image: '../../assets/download1.png',
+    },
+  ];
 
   constructor(private coursesService: CoursesService) {}
-
+search="";
+arr!:any[];
   ngOnInit() {}
-/*
-  onSearch(search: string) {
-    this.searchResults$ = this.coursesService.searchLessons(search);
-  }
-*/
-  openLesson(lesson: Lesson) {
-    this.activeLesson = lesson;
-  }
+  flag: boolean = false;
 
-  onBackToSearch() {
-    this.activeLesson = {};
+  onSearch(val:string) {
+    console.warn(val);
+    this.flag = true;
   }
 }
