@@ -20,6 +20,7 @@ export class AuthServiceService {
         for (const key in res) {
           if (res.hasOwnProperty(key)) {
             users.push({ ...res[key], id: key });
+            console.log(users);
           }
         }
 

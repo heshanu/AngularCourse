@@ -27,6 +27,10 @@ const routes: Routes = [
     component: AboutComponent,
   },
   {
+    path: 'home',
+    component:HomeComponent,
+  },
+  {
     path: 'courses/:courseId',
     component: CourseComponent,
   },
