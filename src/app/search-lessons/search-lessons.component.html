@@ -1,35 +1,42 @@
 <div class="course">
   <h2>Search All Lessons</h2>
 
+<form  [formGroup]="form" class="login-form">
   <mat-form-field class="search-bar">
     <input
       matInput
       placeholder="Type your search"
       autocomplete="off"
       name="search"
-      #s
+      [(ngModel)]="searchText"
+      [ngModelOptions]="{standalone: true}"
+      (ngModelChange)="Search()"
     />
   </mat-form-field>
 
-  <button class="search" mat-raised-button color="primary">
+  <button class="search" mat-raised-button color="primary"></button>
     <button
       class="search"
       mat-raised-button
       color="primary"
-      ngModel="search"
     >
       <mat-icon>search</mat-icon>
       Search
     </button>
+    </form>
 
-    <ng-container>
-      <ng-container *ngIf="flag">
+    <ng-container *ngIf="flag">
+      <ng-container>
         <table class="lessons-table mat-elevation-z7">
           <thead>
-            <th>#</th>
+            <th>title</th>
             <th>Description</th>
             <th>Duration</th>
           </thead>
+          <tr *ngFor="let a of arr">
+
+            <td>{{a}}</td>
+          </tr>
         </table>
       </ng-container>
     </ng-container>
@@ -39,8 +46,6 @@
         <mat-icon>arrow_back_ios</mat-icon>
         Back to Search
       </button>
-
       <app-search-lessons lesson="activeLesson"></app-search-lessons>
     </ng-template>
-  </button>
 </div>

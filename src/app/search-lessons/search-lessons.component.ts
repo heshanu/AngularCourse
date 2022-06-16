@@ -26,6 +26,7 @@ import {
 import { merge, fromEvent, Observable, concat } from 'rxjs';
 import { Lesson } from '../model/lesson';
 import { CoursesService } from '../services/courses.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-search-lessons',
   templateUrl: './search-lessons.component.html',
@@ -35,7 +36,7 @@ import { CoursesService } from '../services/courses.service';
 export class SearchLessonsComponent implements OnInit {
   //searchResults!: any[];
   searchValue: string = '';
-
+  form!: FormGroup;
   activeLesson!: any[];
 
   courseB: any = [
@@ -114,14 +115,29 @@ export class SearchLessonsComponent implements OnInit {
     },
   ];
 
-  constructor(private coursesService: CoursesService) {}
-search="";
-arr!:any[];
+  constructor(private coursesService: CoursesService, private fb: FormBuilder) {
+    this.form = fb.group({
+      search: '',
+    });
+  }
+  searchText: any;
+  arr!:Lesson[];
   ngOnInit() {}
   flag: boolean = false;
-
-  onSearch(val:string) {
-    console.warn(val);
-    this.flag = true;
+  i!: any[];
+  Search() {
+    //this.search = this.form.value.search;
+    //console.log(this.search);
+    // for (const key in this.courseA) {
+    //   if (this.courseA.find((x) => x.title== this.search)) {
+    //     this.flag = true;
+    //   }
+    if (this.searchText !== '') {
+      this.arr = this.arr.filter((res) => {
+        return res['searchText'].toLocalelowerCase().match(this.searchText);
+      });
+    } else {
+      alert('Please enter values');
+    }
   }
 }

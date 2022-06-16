@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'search-lessons',
-    component: SearchLessonsComponent,
+    component:SearchLessonsComponent,
   },
   {
     path: 'about',

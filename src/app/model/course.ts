@@ -1,5 +1,6 @@
 
 export interface Course {
+  searchText: any;
   id: string;
   description: string;
   longDescription: string;

@@ -104,6 +104,7 @@ import { AlertsComponent } from './shared/alerts/alerts.component';
     MatSelectModule,
     MatDatepickerModule,
     ReactiveFormsModule,
+    FormsModule,
     MatCardModule,
   ],
   providers: [LoadingService, MessagesService],
